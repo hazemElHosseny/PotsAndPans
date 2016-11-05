@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.util.Log;
+import android.view.View;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -81,6 +82,9 @@ public class DataClass {
                         R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        if(context instanceof HomeActivity) {
+                            ((HomeActivity) context).getProgressWheel().setVisibility(View.GONE);
+                        }
                         dialog.dismiss();
                     }
                 });
